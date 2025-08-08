@@ -21,7 +21,7 @@ const UserProvider = ({children}) => {
 
     const fetchCode = async (id) => {
         try {
-            const response = await axios.get(`http://localhost:3000/users/${id}`);
+            const response = await axios.get(`http://localhost:10001/users/${id}`);
             setCode(response.data.init_code);
         } catch (e) {
             console.error("Ошибка при получении init_code", e);
@@ -35,7 +35,7 @@ const UserProvider = ({children}) => {
 
         const poll = async () => {
             try {
-                const res = await axios.get(`http://localhost:3000/users/${id}`);
+                const res = await axios.get(`http://localhost:10001/users/${id}`);
                 const newCode = res.data.init_code;
 
                 if (newCode && newCode.trim() !== "") {
@@ -122,7 +122,7 @@ const UserProvider = ({children}) => {
                 return;
             }
 
-            await fetch(`http://localhost:3000/users/${user.id}`, {
+            await fetch(`http://localhost:10001/users/${user.id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
@@ -150,7 +150,7 @@ const UserProvider = ({children}) => {
                 return;
             }
 
-            await fetch(`http://localhost:3000/users/${user.id}`, {
+            await fetch(`http://localhost:10001/users/${user.id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"

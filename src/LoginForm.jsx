@@ -12,7 +12,7 @@ const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch(`http://localhost:3000/users?username=${username}`);
+            const res = await fetch(`http://localhost:10001/users?username=${username}`);
             const data = await res.json();
 
             if (data.length > 0) {
@@ -30,7 +30,7 @@ const LoginForm = () => {
                     streamers: []
                 };
 
-                const createRes = await fetch("http://localhost:3000/users", {
+                const createRes = await fetch("http://localhost:10001/users", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
